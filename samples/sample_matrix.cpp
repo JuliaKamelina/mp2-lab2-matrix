@@ -9,22 +9,33 @@
 #include "utmatrix.h"
 //---------------------------------------------------------------------------
 
-void main()
-{
-  int i, j;
+void main() {
+  int sizeA, sizeB;
 
   setlocale(LC_ALL, "Russian");
   cout << "Тестирование программ поддержки представления треугольных матриц"
     << endl;
+
   cout << "Ведите размер матрицы A" << endl;
   cin >> sizeA;
-  cout >> "Введите размер матрицы B" >> endl;
+  cout << "Введите матрицу A" << endl;
+  TMatrix<int> A(sizeA);
+  cin >> A;
+  cout << "Ведите размер матрицы В" << endl;
   cin >> sizeB;
-  TMatrix<int> A(sizeA), B(sizeB);
-  c = a + b;
-  cout << "Matrix a = " << endl << a << endl;
-  cout << "Matrix b = " << endl << b << endl;
-  cout << "Matrix c = a + b" << endl << c << endl;
-  
+  cout << "Введите матрицу В" << endl;
+  TMatrix<int> B(sizeB);
+  cin >> B;
+
+  TMatrix<int> C(sizeA);
+
+      C = A + B;
+
+      cout << "Matrix A = " << endl << A << endl;
+      cout << "Matrix B = " << endl << B << endl;
+      cout << "Matrix C = A + B" << endl << C << endl;
+
+      C = A - B;
+      cout << "Matrix C = A - B" << endl << C << endl;
 }
 //---------------------------------------------------------------------------
