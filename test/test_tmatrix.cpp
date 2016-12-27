@@ -80,7 +80,7 @@ TEST(TMatrix, assign_operator_change_matrix_size) {
   EXPECT_EQ(m.GetSize(), m1.GetSize());
 }
 
-TEST(TMatrix, can_assign_matrices_of_different_size {
+TEST(TMatrix, can_assign_matrices_of_different_size) {
   TMatrix<int> m(4);
   TMatrix<int> m1(5);
   
@@ -133,7 +133,7 @@ TEST(TMatrix, cant_add_matrices_with_not_equal_size) {
   ASSERT_ANY_THROW(m + m1);
 }
 
-TEST(TMatrix, can_subtract_matrices_with_equal_size {
+TEST(TMatrix, can_subtract_matrices_with_equal_size) {
   TMatrix<int> m(4);
   TMatrix<int> m1(4);
   TMatrix<int> expM(4);

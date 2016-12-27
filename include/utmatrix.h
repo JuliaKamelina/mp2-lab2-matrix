@@ -9,6 +9,7 @@
 #define __TMATRIX_H__
 
 #include <iostream>
+#include <stdexcept>
 
 using namespace std;
 
@@ -67,7 +68,7 @@ TVector<ValType>::TVector(int s, int si) {
     Size = s;
     StartIndex = si;
   } else {
-    throw 1;
+    throw std::logic_error("too big index");
   }
 } /*-------------------------------------------------------------------------*/
 
@@ -90,7 +91,7 @@ ValType& TVector<ValType>::operator[](int pos) {
   if (pos >= StartIndex && pos - StartIndex < Size)
     return pVector[pos - StartIndex];
   else
-    throw 1;
+    throw std::logic_error("wrong index");
 } /*-------------------------------------------------------------------------*/
 
 template <class ValType> // сравнение
@@ -160,7 +161,7 @@ TVector<ValType> TVector<ValType>::operator+(const TVector<ValType> &v) {
       tmp.pVector[i] = pVector[i] + v.pVector[i];
     return tmp;
   } else {
-    throw 1;
+    throw std::logic_error("differint size");
   }
 } /*-------------------------------------------------------------------------*/
 
@@ -172,7 +173,7 @@ TVector<ValType> TVector<ValType>::operator-(const TVector<ValType> &v) {
       tmp.pVector[i] = pVector[i] - v.pVector[i];
     return tmp;
   } else {
-    throw 1;
+    throw std::logic_error("differint size");
   }
 } /*-------------------------------------------------------------------------*/
 
@@ -184,7 +185,7 @@ ValType TVector<ValType>::operator*(const TVector<ValType> &v) {
       tmp += pVector[i]*v.pVector[i];
     return tmp;
   } else {
-    throw 1;
+    throw std::logic_error("differint size");
   }
 } /*-------------------------------------------------------------------------*/
 
@@ -224,7 +225,7 @@ TMatrix<ValType>::TMatrix(int s): TVector<TVector<ValType> >(s) {
     for (int i = 0; i < s; i++)
       pVector[i] = TVector<ValType>(s-i, i);
   } else {
-    throw 1;
+    throw std::logic_error("too big size");
   }
 } /*-------------------------------------------------------------------------*/
 
